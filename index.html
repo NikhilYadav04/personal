@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grief Journal - A Story of Love and Loss</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        line-height: 1.8;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: shimmer 6s infinite;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+      }
+
+      .content {
+        padding: 40px 30px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .section:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .section:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .section:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .section:nth-child(4) {
+        animation-delay: 0.8s;
+      }
+      .section:nth-child(5) {
+        animation-delay: 1s;
+      }
+      .section:nth-child(6) {
+        animation-delay: 1.2s;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #667eea;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: #764ba2;
+      }
+
+      .section-content {
+        color: #4a4a4a;
+        font-size: 1.1rem;
+        text-align: justify;
+        padding: 20px;
+        background: #f8f9fa;
+        border-left: 4px solid #667eea;
+        border-radius: 0 10px 10px 0;
+        position: relative;
+      }
+
+      .section-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #667eea, transparent);
+      }
+
+      .opening-note {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        color: #2d3436;
+        padding: 30px;
+        border-radius: 15px;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .closing-section {
+        background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+      }
+
+      .closing-section .section-title {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .closing-section .section-title::after {
+        background: white;
+      }
+
+      .closing-section .section-content {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-left-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .footer {
+        text-align: center;
+        padding: 30px;
+        background: #f8f9fa;
+        color: #666;
+        font-style: italic;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        .header {
+          padding: 30px 20px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .content {
+          padding: 30px 20px;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .section-content {
+          padding: 15px;
+          font-size: 1rem;
+        }
+
+        .opening-note {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header h1 {
+          font-size: 1.8rem;
+        }
+
+        .section-title {
+          font-size: 1.3rem;
+        }
+
+        .section-content {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .header {
+          background: #2c3e50;
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Grief Journal</h1>
+      </div>
+
+      <div class="content">
+        <div class="opening-note">
+          <strong>Opening Note:</strong><br /><br />
+          Today, whether we sit surrounded by friends or enjoy a better place in
+          life after surviving our worst phases, we must remember the ones who
+          stood by us. There is always someone who sacrificed their time,
+          effort, and peace just to see us reach where we are today. Such people
+          never hesitated to help, never asked for anything in return—only
+          wished for our happiness and success. Let us never forget them, never
+          repay them with hurt, but instead honor their efforts with the same
+          care and loyalty.
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">1. My Regret</h2>
+          <div class="section-content">
+            My greatest regret is that during your worst phase, I gave
+            everything I had—my time, my energy, my peace—just to see you in a
+            better place, but in return I was left unvalued. I regret that even
+            though I stood with you in every storm, when it was my turn to lean
+            on you, you were not there for me. I regret ignoring my own needs
+            and pain, believing that my sacrifices would one day be recognized,
+            but instead, they were overlooked.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">2. What I Did for You</h2>
+          <div class="section-content">
+            During your darkest moments, I dedicated myself to lifting you up. I
+            put in every ounce of effort to make your life better, to remind you
+            that brighter days would come. I never hesitated to reply to your
+            messages, even when I was busy or exhausted. I stayed available
+            whenever you needed me, no matter how inconvenient it was for me.
+            <br /><br />
+            I constantly tried to motivate you when you were on the verge of
+            giving up, repeating again and again that things would eventually
+            get better. I fought for you as if your battles were my own,
+            standing like a shield when you were about to fall apart. Even when
+            you doubted yourself, I assured you that following my advice would
+            help you push through.
+            <br /><br />
+            There were many times when you ended our friendship with harsh
+            behavior, yet I was always the one who tried to convince you to come
+            back. And when you did return, often with an emotional tone, I
+            accepted you again and started everything from the beginning—despite
+            the fact that most of the mistakes were yours.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">3. How I Felt Hurt</h2>
+          <div class="section-content">
+            What hurt me most was not just the mistakes, but the way you never
+            stood by me when I truly needed you. I ignored the pain you gave me,
+            hoping one day you would see how much I cared, but that day never
+            came. For five years, I overlooked your mistakes and endured your
+            emotional swings, sacrificing my own mental peace just to keep the
+            bond alive.
+            <br /><br />
+            It broke me to see that you had time for traveling, for spending
+            moments with others, and for everything else in your life—but you
+            didn't have time for me, the one who stood by you during your lowest
+            phases. I gave you unconditional support, yet I was left without the
+            same care in return. Despite contributing to the person you are
+            today and the happiness you now enjoy, my role was ignored, and I
+            was left feeling unseen and unappreciated.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">4. What This Means to Me</h2>
+          <div class="section-content">
+            This entire experience has left me questioning the meaning of
+            loyalty and sacrifice. I don't understand why caring for someone so
+            deeply only brought me pain and emptiness. It feels unfair that my
+            devotion, my sleepless nights, my endless patience, and my
+            sacrifices were never acknowledged. I am left wondering if helping
+            someone and caring at such a level is even worth it, when all it
+            seems to bring back is silence and regret.
+          </div>
+        </div>
+
+        <div class="section closing-section">
+          <h2 class="section-title">5. Closing Reflection</h2>
+          <div class="section-content">
+            Still, the truth remains: I was there. I stood by you in your worst
+            phases, I gave you my time, my strength, and my love when you were
+            about to give up. That will always remain a part of me, no matter
+            what. Yet the wound of being unseen and unvalued cuts deep.
+            <br /><br />
+            From this, I have learned a painful but important truth: giving
+            everything to someone does not mean they will give the same in
+            return. But it does reveal my own strength—my loyalty, my honesty,
+            and my ability to care beyond limits. And even if I was left hurt, I
+            know I loved and cared with all my heart, and that is something I
+            will never regret about myself.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        "In the end, we remember not the words of our enemies, but the silence
+        of our friends."
+      </div>
+    </div>
+  </body>
+</html>
